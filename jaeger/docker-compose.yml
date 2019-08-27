@@ -1,0 +1,20 @@
+version: "3"
+services:
+  jaegertracing:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 5776:5775
+      - 6832:6831
+      - 6833:6832
+      - 5779:5778
+      - 16687:16686
+      - 14269:14268
+      - 9412:9411
+    networks:
+      - jaeger-network
+
+networks:
+  jaeger-network:
+  

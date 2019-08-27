@@ -1,0 +1,12 @@
+version: "3"
+services:
+  mysql_master:
+    build: ./master
+    volumes:
+      - "./mysql_master:/var/lib/mysql"
+
+
+  # mysql_slave_1:
+  #   image: mariadb:10.4
+  #   volumes:
+  #     - "./mysql_slave_1:/var/lib/mysql"

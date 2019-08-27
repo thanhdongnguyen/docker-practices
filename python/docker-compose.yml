@@ -1,0 +1,20 @@
+version: "3"
+services:
+  python:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: python
+    ports: 
+      - 9092:9090
+      - 8010:8880
+    volumes:
+      - ./prometheus.yml:/etc/prometheus.yml
+      - ./src:/src
+    networks:
+      - python_env
+    # command: /usr/sbin/init 
+    command: /bin/sh -c "gunicorn -c /usr/setup.py usr.main:app" 
+
+networks:
+  python_env:

@@ -1,0 +1,11 @@
+version: "3"
+services: 
+  alpine:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    networks:
+      - alpine-network
+
+networks:
+  alpine-network:

@@ -1,0 +1,11 @@
+version: "3"
+services:
+  cavisor:
+    build: .
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:rw
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+    ports:
+      - 8001:8080

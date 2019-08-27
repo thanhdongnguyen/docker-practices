@@ -1,0 +1,14 @@
+FROM mariadb:10.4
+
+
+ENV MYSQL_ROOT_PASSWORD=dongnt
+ENV MYSQL_DATABASE=mysql_demo
+ENV MYSQL_USER=dongnt
+ENV MYSQL_PASSWORD=dongnt
+ENV MYSQL_ALLOW_EMPTY_PASSWORD=no
+
+
+COPY ./my.cnf /etc/mysql/my.cnf
+
+#RUN mysql -u root -p $MYSQL_ROOT_PASSWORD --execute="STOP SLAVE; GRANT REPLICATION SLAVE ON *.* TO 'dongnt_slave'@'%' IDENTIFIED BY 'dongnt'; FLUSH PRIVILEGES; FLUSH TABLE WITH READ LOCK; SHOW MASTER STATUS"
+CMD [ "mysql", "-u", "root", "-p" ]
